@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2024 at 09:34 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Jun 17, 2024 at 08:27 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `loginmethod`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rooms`
+--
+
+CREATE TABLE `rooms` (
+  `room_id` int(200) NOT NULL,
+  `room_cat` text NOT NULL,
+  `checkin` date NOT NULL,
+  `checkout` date NOT NULL,
+  `name` text NOT NULL,
+  `phone` int(100) NOT NULL,
+  `book` text NOT NULL,
+  `persons` int(100) NOT NULL,
+  `checkin_ampm` int(11) NOT NULL,
+  `checkout_ampm` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -51,8 +70,8 @@ INSERT INTO `users` (`User_Id`, `account_type`, `username`, `password`, `firstna
 (12, 0, 'Rey', 'pass', 'Rey', 'Malicse', '2002-03-03', 'male', '', ''),
 (14, 0, 'anakniluka', 'mavs', 'dj', 'aquino', '2003-09-27', 'male', '', ''),
 (21, 1, 'rey1', '$2y$10$PJXnifnJlFv4o5DxoC5G3esf7DmpRo8BNfmahFr1RxYaq3cjfgm4i', 'Rey ', 'Malicse', '2002-03-03', 'Male', 'reywillardd01@gmail.com', 'uploads/profile pic_1716340929.jpg'),
-(23, 0, 'Rey_W', '$2y$10$ZMFMvEoVvo9bza25XfuCserQ9dtrh93TzLE59/0bVu0fsgBCW5ow.', 'Rey Willard ', 'Malicse', '2002-03-30', 'Male', 'malicsuave@gmail.com', 'uploads/OIP.jpg'),
-(24, 1, 'malicsuave', '$2y$10$keBynbf8p7mQTn4htB4zRO4jhuvMPwfXBCc6FXjIKDVEP65jtpFHC', 'John', 'Doe', '1232-03-12', 'Male', 'you@gmail.com', 'uploads/OIP_1716447605.jpg');
+(23, 0, 'admin', '$2y$10$ZMFMvEoVvo9bza25XfuCserQ9dtrh93TzLE59/0bVu0fsgBCW5ow.', 'Rey Willard ', 'Malicse', '2002-03-30', 'Male', 'malicsuave@gmail.com', 'uploads/OIP.jpg'),
+(24, 1, 'customer', '$2y$10$keBynbf8p7mQTn4htB4zRO4jhuvMPwfXBCc6FXjIKDVEP65jtpFHC', 'John', 'Doe', '1232-03-12', 'Male', 'you@gmail.com', 'uploads/OIP_1716447605.jpg');
 
 -- --------------------------------------------------------
 
@@ -83,6 +102,12 @@ INSERT INTO `user_address` (`user_add_id`, `User_Id`, `street`, `barangay`, `cit
 --
 
 --
+-- Indexes for table `rooms`
+--
+ALTER TABLE `rooms`
+  ADD PRIMARY KEY (`room_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -98,6 +123,12 @@ ALTER TABLE `user_address`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `rooms`
+--
+ALTER TABLE `rooms`
+  MODIFY `room_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `users`
